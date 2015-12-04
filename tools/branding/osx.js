@@ -6,13 +6,15 @@ var cpy = require('cpy');
 var debug = require('debug')('lsapp:distribute:osx');
 var cmd = require('./cmd');
 
+const runCodeSign = process.argv.indexOf('--no-codesign') !== -1;
+
 module.exports = function(app) {
 	return updateMainApp(app)
 	.then(app => updateHelperApp(path.resolve(app.dir, 'Contents/Frameworks/Electron Helper.app'), app))
 	.then(app => updateHelperApp(path.resolve(app.dir, 'Contents/Frameworks/Electron Helper EH.app'), app))
 	.then(app => updateHelperApp(path.resolve(app.dir, 'Contents/Frameworks/Electron Helper NP.app'), app))
 	.then(copyIcon)
-	.then(codesign);
+	.then(runCodeSign ? codesign : (app) => app);
 }
 
 function updateMainApp(app) {

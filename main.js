@@ -11,6 +11,10 @@ var installChrome = require('./lib/install/chrome');
 var installST = require('./lib/install/sublime-text');
 var pkg = require('./package.json');
 
+if (require('electron-squirrel-startup')) {
+	return;
+}
+
 // XXX init
 var appModel = {};
 var app = menubar({
