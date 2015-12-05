@@ -37,6 +37,7 @@
   "devDependencies": {
     "cpy": "^3.4.0",
     "del": "^2.1.0",
+    "electron-installer-squirrel-windows": "^1.2.2",
     "electron-prebuilt": "^0.35.0",
     "glob-all": "^3.0.1",
     "mocha": "^2.2.5",

@@ -16,7 +16,15 @@ function editResources(app) {
 	return new Promise(function(resolve, reject) {
 		debug('set icon %s', app.icon);
 		var opt = {
+			'version-string': {
+				'ProductName': app.productName,
+				'CompanyName': app.companyName,
+				'FileDescription': app.description,
+				'LegalCopyright': app.copyright,
+				'OriginalFilename': app.name.toLowerCase() + '.exe'
+			},
 			'icon': app.icon,
+			'file-version': app.version,
 			'product-version': app.version
 		};
 

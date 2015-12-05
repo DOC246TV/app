@@ -43,6 +43,10 @@ module.exports = function(platform) {
 	var app = {
 		id: 'io.livestyle.app',
 		name: 'LiveStyle',
+		productName: 'Emmet LiveStyle',
+		companyName: 'Emmet.io',
+		copyright: 'Copyright (c) 2015 Sergey Chikuyonok',
+		description: pkg.description,
 		platform,
 		icon: path.resolve(__dirname, `./branding/icon/${isOSX ? 'livestyle.icns' : 'livestyle.ico'}`),
 		dir: appDir[platform],
