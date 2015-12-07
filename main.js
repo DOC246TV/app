@@ -21,7 +21,7 @@ var app = menubar({
 	width: 380,
 	height: 360,
 	resizable: false,
-	icon: path.resolve(__dirname, 'assets/menu-icon.png')
+	icon: path.resolve(__dirname, `assets/${process.platform === 'win32' ? 'win-menu-icon.png' : 'menu-icon.png'}`)
 })
 .on('ready', function() {
 	connect(pkg.config.websocketUrl, function(err, client) {
